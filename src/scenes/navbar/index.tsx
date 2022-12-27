@@ -67,7 +67,7 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
               </div>
             ) : (
               <button
-                className="rounded-full bg-secondary-500 p-2"
+                className="rounded-full bg-secondary-500 p-2 transition duration-200  hover:bg-primary-500 hover:text-white"
                 onClick={() => {
                   setIsMenuToggled(!isMenuToggled);
                 }}
