@@ -6,3 +6,4 @@
 - Framer-motion, smooth scroll, form submit
 - Tailwind CSS
 - Heroicons
+- Prettier
