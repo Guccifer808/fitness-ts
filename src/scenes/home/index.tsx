@@ -2,12 +2,11 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
 import { SelectedPage } from "@/shared/types";
 import HomePageText from "@/assets/HomePageText.png";
-import HomePageGraphic from "@/assets/HomePageText.png";
-import SponsorRedBull from "@/assets/HomePageText.png";
-import SponsorForbess from "@/assets/HomePageText.png";
-import SponsorFortune from "@/assets/HomePageText.png";
-import SponsorNike from "@/assets/HomePageText.png";
-import { classNames } from "classnames";
+import HomePageGraphic from "@/assets/HomePageGraphic.png";
+import SponsorRedBull from "@/assets/SponsorRedBull.png";
+import SponsorForbes from "@/assets/SponsorForbes.png";
+import SponsorFortune from "@/assets/SponsorFortune.png";
+import SponsorNike from "@/assets/SponsorNike.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 type Props = {
@@ -16,16 +15,16 @@ type Props = {
 
 const Home = ({ setSelectedPage }: Props) => {
   //responsive
-  const isAboveMediumScreenshots = useMediaQuery("(min-width:1060px)");
+  const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
 
   return (
     <section id="home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
       {/* Image & Main */}
-      <div>
+      <div className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6">
         {/* Main */}
-        <div>
+        <div className=",t-32 z-10 md:basis-3/5">
           {/* Headings */}
-          <div>
+          <div className="md:-mt-20">
             <div>
               <div>
                 <img alt="home-text" src={HomePageText} />
@@ -51,8 +50,23 @@ const Home = ({ setSelectedPage }: Props) => {
         </div>
 
         {/* Image */}
-        <div></div>
+        <div>
+          <img alt="home-graphic" src={HomePageGraphic}></img>
+        </div>
       </div>
+      {/* Sponsors */}
+      {isAboveMediumScreens && (
+        <div>
+          <div>
+            <div>
+              <img src={SponsorForbes} alt="forbes" />
+              <img src={SponsorNike} alt="nike" />
+              <img src={SponsorRedBull} alt="redbull" />
+              <img src={SponsorFortune} alt="fortune" />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
