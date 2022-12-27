@@ -4,6 +4,7 @@ import Logo from "@/assets/Logo.png";
 import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import ActionButton from "./../../shared/ActionButton";
 
 //Navbar component props
 type Props = {
@@ -54,7 +55,9 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
                 {/* Inner Right */}
                 <div className={`${flexBetween} gap-8`}>
                   <p>Sign In</p>
-                  <button>Become a member</button>
+                  <ActionButton setSelectedPage={setSelectedPage}>
+                    Become a member
+                  </ActionButton>
                 </div>
               </div>
             ) : (
@@ -70,6 +73,10 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
           </div>
         </div>
       </div>
+      {/* Mobile Menu modal */}
+      {!isAboveMediumScreens && isMenuToggled && (
+        <div className="fixed right-0 bottom-0 z-40 h-full w-[18.75rem]"></div>
+      )}
     </nav>
   );
 };
