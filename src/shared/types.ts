@@ -12,3 +12,10 @@ export interface BenefitType {
   title: string;
   description: string;
 }
+
+// optional description with ?
+export interface PlanType {
+  name: string;
+  description?: string;
+  image: string;
+}
