@@ -87,19 +87,20 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                     "Please make it shorter."}
                 </p>
               )}
+
               <input
                 className={inputStyles}
                 type="text"
                 placeholder="SUBJECT"
                 {...register("subject", { required: false, maxLength: 75 })}
               />
-
               {errors.subject && (
                 <p className="mt-1 text-primary-500">
                   {errors.subject.type === "maxLength" &&
                     "Please make it shorter."}
                 </p>
               )}
+
               <input
                 className={inputStyles}
                 type="text"
@@ -110,7 +111,6 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 })}
               />
-
               {errors.email && (
                 <p className="mt-1 text-primary-500">
                   {errors.email.type === "required" &&
@@ -118,6 +118,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   {errors.email.type === "pattern" && "Invalid email."}
                 </p>
               )}
+
               <textarea
                 className={inputStyles}
                 rows={5}
@@ -143,6 +144,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               </button>
             </form>
           </motion.div>
+          {/* Image */}
         </div>
       </motion.div>
     </section>
