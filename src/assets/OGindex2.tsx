@@ -46,6 +46,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
   return (
     <section id="benefits" className="mx-auto min-h-full w-5/6 py-20">
       <motion.div
+        className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
         onViewportEnter={() => setSelectedPage(SelectedPage.Benefits)}
       >
         {/* Headers */}
