@@ -9,9 +9,10 @@ type Props = {
 };
 
 const ContactUs = ({ setSelectedPage }: Props) => {
-  //Form function
-  //
+  //Form styling
+  const inputStyles = `w-full rounded-lg bg-primary-300 px-5 py-3 mt-5 placeholder-white`;
 
+  //Form functionality
   const {
     register,
     trigger,
@@ -70,8 +71,77 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               target="_blank"
               onSubmit={onSubmit}
               method="POST"
-              action="https://formsubmit.co/hucciallstars@gmail.com"
-            ></form>
+              action="https://formsubmit.co/712cad5ade0530064a9c927c1ca9ff56"
+            >
+              <input
+                className={inputStyles}
+                type="text"
+                placeholder="NAME"
+                {...register("name", { required: true, maxLength: 50 })}
+              />
+              {/* Errors validation, handling */}
+              {errors.name && (
+                <p className="mt-1 text-primary-500">
+                  {errors.name.type === "required" && "This is required field."}
+                  {errors.name.type === "maxLength" &&
+                    "Please make it shorter."}
+                </p>
+              )}
+              <input
+                className={inputStyles}
+                type="text"
+                placeholder="SUBJECT"
+                {...register("subject", { required: false, maxLength: 75 })}
+              />
+
+              {errors.subject && (
+                <p className="mt-1 text-primary-500">
+                  {errors.subject.type === "maxLength" &&
+                    "Please make it shorter."}
+                </p>
+              )}
+              <input
+                className={inputStyles}
+                type="text"
+                placeholder="EMAIL"
+                {...register("email", {
+                  required: true,
+                  maxLength: 75,
+                  pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                })}
+              />
+
+              {errors.email && (
+                <p className="mt-1 text-primary-500">
+                  {errors.email.type === "required" &&
+                    "This is required field."}
+                  {errors.email.type === "pattern" && "Invalid email."}
+                </p>
+              )}
+              <textarea
+                className={inputStyles}
+                rows={5}
+                cols={50}
+                placeholder="MESSAGE"
+                {...register("message", { required: true, maxLength: 750 })}
+              />
+              {/* Errors validation, handling */}
+              {errors.message && (
+                <p className="mt-1 text-primary-500">
+                  {errors.message.type === "required" &&
+                    "This is required field."}
+                  {errors.message.type === "maxLength" &&
+                    "Maximum lenght is 750 characters."}
+                </p>
+              )}
+              {/* Submit button */}
+              <button
+                type="submit"
+                className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
+              >
+                SUBMIT
+              </button>
+            </form>
           </motion.div>
         </div>
       </motion.div>
