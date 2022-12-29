@@ -7,3 +7,5 @@
 - Tailwind CSS
 - Heroicons
 - Prettier
+
+[Deployed](https://bba56ee0.fitness-ts.pages.dev/)
