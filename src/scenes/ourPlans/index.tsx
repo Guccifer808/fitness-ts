@@ -8,6 +8,7 @@ import image6 from "@/assets/image6.png";
 import { motion } from "framer-motion";
 import HeaderText from "@/shared/HeaderText";
 import Plan from "./Plan";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 //array of obj for plans carousel
 const plans: Array<PlanType> = [
@@ -54,8 +55,10 @@ type Props = {
 };
 
 const OurPlans = ({ setSelectedPage }: Props) => {
+  //Scrollbar styles
+  // const scrollBarStyles = `scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-blue-300 h-32 overflow-y-scroll`;
   return (
-    <section id="ourplans" className="w-full bg-primary-100 py-40">
+    <section id="ourplans" className="w-full bg-primary-100 py-20 md:py-40">
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPage.OurPlans)}
       >
@@ -79,7 +82,7 @@ const OurPlans = ({ setSelectedPage }: Props) => {
             </p>
           </div>
         </motion.div>
-        <div className="mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden">
+        <div className="scroll -mx-2 mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden scroll-smooth ">
           <ul className="w-[2800px] whitespace-nowrap">
             {plans.map((item: PlanType, index) => (
               <Plan

@@ -10,7 +10,7 @@ type Props = {
 
 const ContactUs = ({ setSelectedPage }: Props) => {
   //Form styling
-  const inputStyles = `w-full rounded-lg bg-primary-300 px-5 py-3 mt-5 placeholder-white`;
+  const inputStyles = `w-full rounded-lg bg-primary-300 px-5 py-3 mb-5 placeholder-white`;
 
   //Form functionality
   const {
@@ -145,6 +145,25 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             </form>
           </motion.div>
           {/* Image */}
+          <motion.div
+            className="relative mt-16 basis-3/5 md:mt-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.75 }}
+            variants={{
+              hidden: { opacity: 0, y: 100 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1] md:before:content-evolvetext">
+              <img
+                className="hidden md:mx-auto md:flex md:h-[30rem] md:w-[30rem]"
+                src={ContactUsPageGraphic}
+                alt="contactus-graphic"
+              />
+            </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>
